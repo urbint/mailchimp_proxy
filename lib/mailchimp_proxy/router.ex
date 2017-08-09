@@ -10,7 +10,7 @@ defmodule MailchimpProxy.Router do
   # Annotations
   #####################################################
 
-  @mc_default_subscriber_list Application.get_env(:mailchimp_proxy, :default_subscriber_list)
+  @mc_list_id Application.get_env(:mailchimp_proxy, :mailchimp_list_id)
   @mc_data_center Application.get_env(:mailchimp_proxy, :mailchimp_data_center)
   @mc_base_url "https://#{@mc_data_center}.api.mailchimp.com/3.0"
   @mc_api_token Application.get_env(:mailchimp_proxy, :mailchimp_api_token)
@@ -70,7 +70,7 @@ defmodule MailchimpProxy.Router do
   #####################################################
 
   @spec subscribe_to_list(binary, binary) :: :ok | {:error, reason :: any}
-  defp subscribe_to_list(email, list_id \\ @mc_default_subscriber_list) do
+  defp subscribe_to_list(email, list_id \\ @mc_list_id) do
     url =
       "#{@mc_base_url}/lists/#{list_id}/members"
 

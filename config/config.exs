@@ -27,4 +27,21 @@ use Mix.Config
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-#     import_config "#{Mix.env}.exs"
+
+allowed_origins =
+  case System.get_env("ALLOWED_ORIGINS") do
+    nil ->
+      nil
+    origins when is_binary(origins) ->
+      origins |> String.split(",")
+  end
+
+config :mailchimp_proxy,
+  allowed_origins: allowed_origins,
+  mailchimp_data_center: System.get_env("MAILCHIMP_DATA_CENTER"),
+  mailchimp_api_token: System.get_env("MAILCHIMP_API_TOKEN"),
+  mailchimp_list_id: System.get_env("MAILCHIMP_LIST_ID")
+
+if File.exists?(Path.join(__DIR__, "#{Mix.env}.exs")) do
+  import_config "#{Mix.env}.exs"
+end

@@ -1,21 +1,20 @@
 # MailchimpProxy
 
-**TODO: Add description**
+A proxy for adding members to a MailChimp list.
 
-## Installation
+## TLDR
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `mailchimp_proxy` to your list of dependencies in `mix.exs`:
+Exposes a `/subscribers` endpoint that you can `POST` to with a body like `{"email": "newsubscriber@yourwebsite.io"}`.
 
-```elixir
-def deps do
-  [
-    {:mailchimp_proxy, "~> 0.1.0"}
-  ]
-end
-```
+## Exposed Env Vars
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/mailchimp_proxy](https://hexdocs.pm/mailchimp_proxy).
+MailChimp data can be set via environmental varables:
+
+| Key                   | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| ALLOWED_ORIGINS       | Origins allowed to make requests of the proxy.  |
+| MAILCHIMP_API_TOKEN   | Your MailChimp API Token.                       |
+| MAILCHIMP_DATA_CENTER | Your MailChimp Data Center.                     |
+| MAILCHIMP_LIST_ID     | The MailChimp list to subscribe new emails to.  |
+
 
