@@ -1,18 +1,6 @@
 defmodule MailchimpProxy do
   @moduledoc """
-  Documentation for MailchimpProxy.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> MailchimpProxy.hello
-      :world
+  A simple proxy for Mailchimp requests.
 
   """
-  def hello do
-    :world
-  end
 end
