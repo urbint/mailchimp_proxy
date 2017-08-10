@@ -4,7 +4,7 @@ ADD . /app
 
 WORKDIR /app
 
-RUN mix local.hex --force && mix deps.get
+RUN mix local.rebar --force && mix local.hex --force && mix deps.get
 
 RUN MIX_ENV=prod mix release --env=prod
 
