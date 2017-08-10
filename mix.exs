@@ -26,8 +26,9 @@ defmodule MailchimpProxy.Mixfile do
       {:cowboy, "~> 1.1"},
       {:plug, "~> 1.3"},
       {:poison, "~> 3.1"},
-      {:cors_plug, "~> 1.4"},
+      {:corsica, "~> 1.0"},
       {:httpoison, "~> 0.11.2"},
+      {:distillery, "~> 1.4", runtime: false},
     ]
   end
 end
